@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="./../assets/css/bootstrap.min.css">
-<!-- Edit Modal -->
+<!-- Edit product -->
 <form class="form-group" id="editProductForm" action="./edit_product.php" method="post">
     <div class="modal-body">
         <div>
@@ -15,10 +15,9 @@
         <!-- Index hidden -->
         <input type="hidden" name="index" value="<?= isset($_GET['index']) ? htmlspecialchars($_GET['index']) : '' ?>">
     </div>
-    <!-- Modal footer -->
     <div>
-        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-success" name="editProductBtn">Save</button>
+        <button type="submit" class="btn btn-default" name="editProductBtn" value="Cancel">Cancel</button>
+        <button type="submit" class="btn btn-success" name="editProductBtn" value="Save">Save</button>
     </div>
 </form>
 <?php
@@ -28,7 +27,7 @@
     if(isset($_SESSION['products'])){
         $products = $_SESSION['products'];
     }
-    if(isset($_POST['editProductBtn'])){
+    if(isset($_POST['editProductBtn'])=="Save"){
         if (isset($_POST['name'], $_POST['price']) && !empty($_POST['name']) && !empty($_POST['price'])) {
             $products[$_POST['index']] = ['name' => $_POST['name'], 'price' => $_POST['price']];
             $_SESSION['products'] = $products;
