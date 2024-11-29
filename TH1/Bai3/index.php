@@ -10,32 +10,32 @@
 
 <body>
     <?php
-// Đường dẫn tới file CSV
+// Path file CSV
 $filename = "Accounts.csv";
 
-// Mảng chứa dữ liệu sinh viên
+// Array data students
 $students = [];
 
-// Mở file CSV
+// Open file CSV
 if (($handle = fopen($filename, "r")) !== FALSE) {
     // Remove BOM
     $bom = fgets($handle, 4);
     if (!preg_match('/^\xEF\xBB\xBF/', $bom)) {
         rewind($handle);
     }
-    // Đọc dòng đầu tiên (tiêu đề)
+    // Read the first line (headline)
     $headers = fgetcsv($handle, 1000, ",");
 
-    // Đọc từng dòng dữ liệu
+    // Read data line by line
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         if (count($data) == count($headers) && !empty($data[0])) {
             $students[] = array_combine($headers, $data);
         }
     }
-    // var_dump(file_exists($filename)); // Kiểm tra file tồn tại
-    // var_dump($headers); // Xem header đọc được
+    // var_dump(file_exists($filename)); // Check file exists
+    // var_dump($headers); // Check headline
 }
-// print_r($students);// In mảng sinh viên=>check
+// print_r($students);// Print array students=>check
 ?>
     <div class="container mt-4">
         <h1 class="text-center">Student List</h1>

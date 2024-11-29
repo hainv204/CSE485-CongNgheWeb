@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
 
         fclose($handle);
 
-        echo '<div class="container mt-5">Save data successflully!</div>';
+        echo '<div class="container mt-5">Save data successfully!</div>';
     } else {
         echo '<div class="container mt-5">Upload failed</div>';
     }

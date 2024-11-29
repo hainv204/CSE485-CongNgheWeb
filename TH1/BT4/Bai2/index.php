@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
             }
         }
 
-        echo "<div>Save data successflully!</div>";
+        echo "<div>Save data successfully!</div>";
     } else {
         echo "<div>Upload failed</div>";
     }

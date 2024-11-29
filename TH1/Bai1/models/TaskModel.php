@@ -7,16 +7,16 @@
   //Add new flower
   if(isset($_POST["addFlowerBtn"])&&$_POST["addFlowerBtn"]=="Add"){
       if(isset($_POST["name"]) && isset($_POST["description"])){
-      $target_dir = "../assets/images/"; //Thư mục đích trên server, nơi file tải lên sẽ được lưu trữ
-      $target_file = $target_dir . basename($_FILES["image"]["name"]); // đường dẫn tới file
+      $target_dir = "../assets/images/"; //Folder server, where to save image store
+      $target_file = $target_dir . basename($_FILES["image"]["name"]); // Path to file
       move_uploaded_file($_FILES["image"]["tmp_name"], $target_file); //upload file
-      // Đường dẫn web để hiển thị ảnh=>path tuyệt đối
+      // Path web display image
       $image_url = BASE_URL . '/assets/images/' . basename($_FILES["image"]["name"]);
       // echo $target_file;
       $flowers[]=[
         'name'=>$_POST['name'],
         'description'=>$_POST['description'],
-        'image'=>$image_url//Lưu đường dẫn web
+        'image'=>$image_url//Save path to image
       ];
         $_SESSION["flowers"]=$flowers;
       // print_r($_FILES['image']);//check
@@ -27,10 +27,9 @@
   //Edit flower
   }else if($_POST["editFlowerBtn"]=="Edit"){
     // print_r($_POST);//Check
-      echo 'Xin chào';
       $image_url = $_POST['image'];
 
-      // Kiểm tra có upload ảnh mới
+      // Check upload image
       if(isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
           $target_dir = "../assets/images/";
           $target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -51,11 +50,11 @@
       header('location: ./../views/layouts/admin.php');
   //Delete flower
   }else if($_POST["delFlowerBtn"]=="Delete"){
-    if(isset($_POST['delFlowerBtn'])=="Delete"){
         $index=$_POST['index'];
         unset($flowers[$index]);
         $_SESSION["flowers"]=$flowers;
         header('location: ./../views/layouts/admin.php');
-    }
+  }else{
+    header('location: ./../views/layouts/admin.php');
   }
 ?>

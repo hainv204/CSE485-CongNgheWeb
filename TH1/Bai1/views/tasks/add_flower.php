@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="footer my-2">
-            <button type="button" class="btn btn-default" name="addFlowerBtn" value="Cancel">Cancel</button>
+            <button type="submit" class="btn btn-default" name="addFlowerBtn" value="Cancel">Cancel</button>
             <button type="submit" class="btn btn-success" name="addFlowerBtn" value="Add">Add</button>
         </div>
     </form>

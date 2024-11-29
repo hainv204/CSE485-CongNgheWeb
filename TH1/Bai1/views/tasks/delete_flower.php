@@ -11,7 +11,7 @@
 <body>
     <form action="./../../models/TaskModel.php" method="post">
         <div class="header">
-            <h4 class="title">Bạn chắc chắn muốn xoá?</h4>
+            <h4 class="title">You sure delete?</h4>
         </div>
         <div class="body">
             <!-- Index hidden -->
