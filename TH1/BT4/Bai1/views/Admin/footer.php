@@ -1,0 +1,1 @@
+<footer colspan="5"><b>Total: <?php echo count($flowers)?> flower</b></footer>
