@@ -27,7 +27,7 @@
             </div>
             <div>
                 <label for="image" class="form-label">Image</label>
-                <img src="<?= htmlspecialchars($flowers['image']) ?>" style="max-width: 200px;">
+                <img src="<?= htmlspecialchars($flowers['image']) ?>" style="max-width: 200px">
                 <input class="my-2" type="file" name="image">
             </div>
             <!-- Index hidden -->
