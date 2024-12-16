@@ -346,7 +346,7 @@
                             <th>Last Name</th>
                             <th>Date Of Birth</th>
                             <th>Parent phone</th>
-                            <th>ID Class</th>
+                            <th>Class</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -362,7 +362,7 @@
                             <td>{{ $st->last_name }}</td>
                             <td>{{ $st->date_of_birth }}</td>
                             <td>{{ $st->parent_phone }}</td>
-                            <td>{{ $st->class_id }}</td>
+                            <td>{{ $st->class->grade_level }}</td>
                         </tr>
                         @endforeach
                     </tbody>

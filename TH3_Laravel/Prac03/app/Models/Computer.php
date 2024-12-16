@@ -10,6 +10,7 @@ class Computer extends Model
     //Tạo mối quan hệ với bảng Issues
     public function issues()
     {
+        //Một máy tính có nhiều vấn đề(issues)
         return $this->hasMany(Issue::class);
     }
 }

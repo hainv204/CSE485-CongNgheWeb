@@ -16,7 +16,7 @@ class ComputersTableSeeder extends Seeder
         $faker = Faker::create();
         for ($i = 0; $i < 100; $i++) {
             DB::table('computers')->insert([
-                'computer_name' => $faker->company, 
+                'computer_name' => $faker->bothify('Lab#-PC##'), 
                 'model' => $faker->bothify('Model-##??'),
                 'operating_system' => $faker->randomElement(['Windows', 'Linux', 'macOS']),
                 'processor' => $faker->randomElement(['Intel i5', 'Intel i7', 'AMD Ryzen 5', 'AMD Ryzen 7']),

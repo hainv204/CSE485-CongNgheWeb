@@ -347,7 +347,7 @@
                             <th>Description</th>
                             <th>Urgency</th>
                             <th>Status</th>
-                            <th>Computer ID</th>
+                            <th>Computer</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -364,7 +364,7 @@
                             <td>{{ $is->description }}</td>
                             <td>{{ $is->urgency }}</td>
                             <td>{{ $is->status }}</td>
-                            <td>{{ $is->computer_id }}</td>
+                            <td>{{ $is->computer->computer_name }}</td>
                         </tr>
                         @endforeach
                     </tbody>
