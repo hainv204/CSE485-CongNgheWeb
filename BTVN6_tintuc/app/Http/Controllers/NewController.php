@@ -12,8 +12,10 @@ class NewController extends Controller
      */
     public function index()
     {
-        $news = News::all();
-        // $news = News::with('category')->paginate(25);//Lấy 25 bản ghi mỗi trang
+        // $news = News::all();
+        //with('category'): tải quan hệ category cùng với news
+        //paginate(25): Lấy 25 bản ghi mỗi trang
+        $news = News::with('category')->paginate(25);
         return view('news.index', compact('news'));
     }
 
@@ -23,7 +25,8 @@ class NewController extends Controller
     public function create()
     {
         $categories = Category::all();//Lấy ra category để chọn
-        return view('news.create', compact('categories'));//compact để truyền dữ liệu từ Controllers sang Views
+        //compact để truyền dữ liệu từ Controllers sang Views
+        return view('news.create', compact('categories'));
     }
 
     /**
@@ -67,6 +70,7 @@ class NewController extends Controller
      */
     public function edit(string $id)
     {
+        //Tìm thấy id thì sẽ chỉnh sửa,không tìm thấy thì báo lỗi
         $new = News::findOrFail($id);
         $categories = Category::all();//Lấy ra category để chọn
         return view('news.edit', compact('new', 'categories'));
